@@ -37,6 +37,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             public void onClick(View v) {
                 Toast.makeText(MainActivity.this, "works", Toast.LENGTH_SHORT).show();
                 Toast.makeText(MainActivity.this, "works_again", Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this, "works_again", Toast.LENGTH_SHORT).show();
+
 
             }
         });

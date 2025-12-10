@@ -19,7 +19,7 @@ public class MainActivity2 extends AppCompatActivity {
     Button btnSave;
     EditText etFname,etLname;
     TextView tvDisplay;
-
+int g;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

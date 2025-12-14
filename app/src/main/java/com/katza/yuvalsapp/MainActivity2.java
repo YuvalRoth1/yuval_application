@@ -1,5 +1,6 @@
 package com.katza.yuvalsapp;
 
+import android.app.Dialog;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
@@ -16,59 +17,65 @@ import androidx.core.view.WindowInsetsCompat;
 public class MainActivity2 extends AppCompatActivity {
 
     SharedPreferences sp;
-    Button btnSave;
-    EditText etFname,etLname;
+    Button btnOpenDialog;
     TextView tvDisplay;
-int g;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main2);
+
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
 
-sp = getSharedPreferences("details1",0);
+        sp = getSharedPreferences("details1", MODE_PRIVATE);
 
         initViews();
-
-String strFname = sp.getString("fname",null);
-String strLname = sp.getString("lname",null);
-if(strLname!=null && strFname!=null){
-    tvDisplay.setText("welcome " + strFname + " " + strLname);
-}
-
-
-
+        loadSavedName();
     }
 
     private void initViews() {
-        btnSave = (Button) findViewById(R.id.btnSubmit);
-        etFname = (EditText) findViewById(R.id.etFname);
-        etLname = (EditText) findViewById(R.id.etLname);
-        tvDisplay = (TextView) findViewById(R.id.tvDisplay);
+        btnOpenDialog = findViewById(R.id.btnSubmit);
+        tvDisplay = findViewById(R.id.tvDisplay);
 
-
-        btnSave.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if(btnSave == v){
-                    SharedPreferences.Editor editor = sp.edit();
-                    editor.putString("fname",etFname.getText().toString());
-                    editor.putString("lname",etLname.getText().toString());
-                    editor.commit();
-
-                }
-            }
-
-        });
-
-
+        btnOpenDialog.setOnClickListener(v -> openCustomDialog());
     }
 
+    private void loadSavedName() {
+        String fname = sp.getString("fname", null);
+        String lname = sp.getString("lname", null);
 
+        if (fname != null && lname != null) {
+            tvDisplay.setText("welcome " + fname + " " + lname);
+        }
+    }
 
+    private void openCustomDialog() {
+        Dialog dialog = new Dialog(this);
+        dialog.setContentView(R.layout.custom_layout);
+        dialog.setCancelable(true);
+
+        EditText etFname = dialog.findViewById(R.id.etFnameDialog);
+        EditText etLname = dialog.findViewById(R.id.etLnameDialog);
+        Button btnSend = dialog.findViewById(R.id.btnDialogSend);
+
+        btnSend.setOnClickListener(v -> {
+            String fname = etFname.getText().toString();
+            String lname = etLname.getText().toString();
+
+            SharedPreferences.Editor editor = sp.edit();
+            editor.putString("fname", fname);
+            editor.putString("lname", lname);
+            editor.apply();
+
+            tvDisplay.setText("welcome " + fname + " " + lname);
+            dialog.dismiss();
+        });
+
+        dialog.show();
+    }
 }

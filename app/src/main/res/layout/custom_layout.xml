@@ -2,37 +2,34 @@
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@drawable/img">
+    android:layout_height="wrap_content"
+    android:padding="20dp">
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_gravity="center"
-        android:layout_marginTop="50dp"
-        android:padding="16dp">
+        android:layout_gravity="center">
 
         <EditText
-            android:id="@+id/etUserName"
+            android:id="@+id/etFnameDialog"
             android:layout_width="200dp"
             android:layout_height="wrap_content"
-            android:hint="username" />
+            android:hint="First name" />
 
         <EditText
-            android:id="@+id/etPassword"
+            android:id="@+id/etLnameDialog"
             android:layout_width="200dp"
             android:layout_height="wrap_content"
-            android:hint="password"
-            android:inputType="textPassword"
+            android:hint="Last name"
             android:layout_marginTop="16dp" />
 
         <Button
-            android:id="@+id/btnDialogLogin"
+            android:id="@+id/btnDialogSend"
             android:layout_width="200dp"
             android:layout_height="wrap_content"
-            android:text="Login"
-            android:layout_marginTop="32dp" />
+            android:text="Send"
+            android:layout_marginTop="24dp" />
 
     </LinearLayout>
 

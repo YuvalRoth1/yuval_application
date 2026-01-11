@@ -1,5 +1,6 @@
 package com.katza.yuvalsapp;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.ContextMenu;
 import android.view.Menu;
@@ -87,12 +88,15 @@ public class MainActivity extends AppCompatActivity {
         int id = item.getItemId();
 
         if(id == R.id.action_page1){
-            Toast.makeText(this, "you selected page 1", Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(this, MainActivity.class);
+                startActivity(intent);
+            finish();
         }
 
         else if(id == R.id.action_page2){
-            Toast.makeText(this, "you selected page 2", Toast.LENGTH_SHORT).show();
-        }
+            Intent intent = new Intent(this, MainActivity2.class);
+            startActivity(intent);
+            finish();        }
 
         return true;
     }

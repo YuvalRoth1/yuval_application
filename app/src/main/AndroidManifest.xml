@@ -12,15 +12,25 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.YuvalsApp">
 
-        <!-- MainActivity נפתח ראשון -->
+        <!-- הדף שנפתח ראשון -->
         <activity
-            android:name=".MainActivity"
+            android:name=".MainActivity4"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <!-- הדף השני (תוצאה) -->
+        <activity
+            android:name=".MainActivity3"
+            android:exported="false" />
+
+        <!-- דפים קיימים – לא נפגעים -->
+        <activity
+            android:name=".MainActivity"
+            android:exported="false" />
 
         <activity
             android:name=".MainActivity2"

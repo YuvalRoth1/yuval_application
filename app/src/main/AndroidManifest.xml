@@ -9,45 +9,50 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.YuvalsApp">
-        <activity
-            android:name=".MainActivity7"
-            android:exported="true" >
-        <intent-filter>
-            <action android:name="ACTION_TYPE_A" />
 
-            <category android:name="android.intent.category.DEFAULT" />
-        </intent-filter>
-        </activity>
-        <!-- LAUNCHER -->
+        <!-- CAMERA – עכשיו דף פתיחה -->
         <activity
-            android:name=".MainActivity6"
+            android:name=".Camera"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity> <!-- FILTER TYPE A -->
+        </activity>
+
+        <activity
+            android:name=".MainActivity7"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="ACTION_TYPE_A" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".MainActivity6"
+            android:exported="true">
+        </activity>
+
         <activity
             android:name=".MainActivity5"
             android:exported="true">
             <intent-filter>
                 <action android:name="ACTION_TYPE_A" />
-
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
+        </activity>
 
-
-        </activity> <!-- FILTER TYPE B -->
         <activity
             android:name=".MainActivity4"
             android:exported="true">
             <intent-filter>
                 <action android:name="ACTION_TYPE_B" />
-
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
-        </activity> <!-- שאר הדפים – לא נוגעים בהם -->
+        </activity>
+
+        <!-- שאר הדפים – לא נוגעים בהם -->
         <activity
             android:name=".MainActivity3"
             android:exported="false" />
@@ -60,8 +65,7 @@
         <activity
             android:name=".Dynamic_Activity"
             android:exported="false" />
+
     </application>
-
-
 
 </manifest>
